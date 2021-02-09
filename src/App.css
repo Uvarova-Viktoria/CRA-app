@@ -1,0 +1,40 @@
+body {
+  background-image: linear-gradient(to right, #12ebdc, #00bdd2, #008fbc, #006298, #14376b);
+  font-family: 'Marck Script', cursive;
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+}
+.nav {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  color: #fff;
+}
+a {
+  color: #fff;
+}
+h1 {
+  margin: 0 auto;
+  max-width: 500px;
+  text-align: center;
+  margin-top: 50px;
+
+}
+.man-img {
+  width: 500px;
+}
+ul {
+  list-style: none;
+  text-align: left;
+  margin: auto;
+  max-width: 500px;
+  margin-top: 20px;
+}
+.box {
+  text-align: center;
+  margin-top: 50px;
+}
+.list-you-can>li::before {
+  content: '-';
+}
