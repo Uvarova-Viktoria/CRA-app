@@ -1,0 +1,12 @@
+.films-slider {
+  display: flex;
+  justify-content: space-around;
+}
+.one-card {
+  background-color: #222274;
+  border: 1px solid green;
+  width: 200px;
+}
+.poster {
+  width: 100%;
+}
