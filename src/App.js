@@ -14,7 +14,7 @@ import About from "./components/about";
 import TimePage from "./components/timePage";
 import Home from "./components/home";
 
-//import About from "./components/about";
+import Header from "./components/header/header";
 
 export default function MainPage() {
   return (
@@ -27,8 +27,9 @@ export default function MainPage() {
 function ModalSwitch() {
   return (
     <div>
+      <Header/>
       <Switch >
-        <Route exact path="/" /><Home />
+        <Route exact path="/" children={<Home />}/>
         <Route path="/timePage" children={<TimePage />} />
         <Route path="/about" children={<About />} />
       </Switch>
