@@ -12,9 +12,9 @@ import {
 
 export default function Search(){
   return(
-    <from className="form-search">
-      <input type="text" placeholder="Найти фильм, сериал, персону..."/>
+    <form className="form-search">
+      <input type="text" placeholder="Найти фильм, сериал, персону..." className="input_search"/>
       <input type="submit" value="Search" className="btn-search"/>
-    </from>
+    </form>
   );
 }

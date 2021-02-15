@@ -13,6 +13,7 @@ import {
 import About from "./components/about";
 import TimePage from "./components/timePage";
 import Home from "./components/home";
+import Login from "./components/login";
 
 import Header from "./components/header/header";
 
@@ -32,6 +33,7 @@ function ModalSwitch() {
         <Route exact path="/" children={<Home />}/>
         <Route path="/timePage" children={<TimePage />} />
         <Route path="/about" children={<About />} />
+        <Route path="/login" children={<Login />} />
       </Switch>
     </div>
   );
