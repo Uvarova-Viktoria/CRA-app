@@ -16,6 +16,7 @@ import Home from "./components/home";
 import Login from "./components/login";
 import Signup from "./components/signup";
 import Header from "./components/header/header";
+import Movie from "./components/movie";
 
 export default function MainPage() {
   return (
@@ -35,6 +36,7 @@ function ModalSwitch() {
         <Route path="/about" children={<About />} />
         <Route path="/login" children={<Login />} />
         <Route path="/signup" children={<Signup />} />
+        <Route path="/movies" children={<Movie />} />
       </Switch>
     </div>
   );

@@ -5,6 +5,11 @@ body {
   font-size: 20px;
   text-align: center;
 }
+.wrapper {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
 .nav {
   list-style: none;
   display: flex;
@@ -103,4 +108,30 @@ ul>li {
 }
 .btns {
   margin-top: 35px;
+}
+.films-slider {
+  display: grid;
+  grid-template: 1fr 1fr 1fr 1fr/1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
+}
+.one-card {
+  background-color: #222274;
+  border: 1px solid green;
+  width: 200px;
+}
+.poster {
+  width: 100%;
+}
+/*movie*/
+.content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 40px;
+}
+.sort_article {
+  background-color: red;
+}
+.films {
+  grid-column-start: 2;
+  grid-column-end: 4;
 }
