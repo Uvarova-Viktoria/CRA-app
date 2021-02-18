@@ -129,7 +129,9 @@ ul>li {
   grid-gap: 40px;
 }
 .sort_article {
-  background-color: red;
+  background-color: transparent;
+  box-shadow: 0 1px 15px 0 rgb(34 36 38 / 15%);
+  padding: 10px;
 }
 .films {
   grid-column-start: 2;
@@ -138,7 +140,7 @@ ul>li {
 
 /*dropdown*/
 .ui.compact.menu {
-  background-color: inherit;
+  background-color: transparent;
   border: none;
 }
 .ui.dropdown>.text {
@@ -151,4 +153,16 @@ ul>li {
 }
 .ui.menu .ui.dropdown .menu>.item>a {
   color: #000;
+}
+.ui.menu.icon-sort .item>i.dropdown.icon {
+  display: block;
+}
+.filter-box, .filter_panel {
+  margin-top: 25px;
+}
+.filter-box .checkbox , .form{
+  display: block;
+  text-align: left;
+  padding-left: 90px;
+  padding-top: 5px;
 }
