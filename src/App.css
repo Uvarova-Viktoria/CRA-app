@@ -135,3 +135,20 @@ ul>li {
   grid-column-start: 2;
   grid-column-end: 4;
 }
+
+/*dropdown*/
+.ui.compact.menu {
+  background-color: inherit;
+  border: none;
+}
+.ui.dropdown>.text {
+  color: #fff;
+  font-family: 'Marck Script', cursive;
+  font-size: 20px;
+}
+.ui.menu .item>i.dropdown.icon {
+  display: none;
+}
+.ui.menu .ui.dropdown .menu>.item>a {
+  color: #000;
+}

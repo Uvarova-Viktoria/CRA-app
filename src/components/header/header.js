@@ -8,6 +8,29 @@ import {
   useLocation,
   useParams
 } from "react-router-dom";
+import {Dropdown, Menu} from 'semantic-ui-react';
+
+const optionsFilms = [
+  { key: 1, text: <Link to="/movies">Популярные</Link>, value: 1 },
+  { key: 2, text: <Link to="/movies">Смотрят сейчас</Link>, value: 2 },
+  { key: 3, text: <Link to="/movies">Ожидаемые</Link>, value: 3 },
+  { key: 4, text: <Link to="/movies">Лучшие</Link>, value: 4 },
+]
+const optionsSeries = [
+  { key: 1, text: <Link to="/tw-series">Популярные</Link>, value: 1 },
+  { key: 2, text: <Link to="/tw-series">В эфире сейчас</Link>, value: 2 },
+  { key: 3, text: <Link to="/tw-series">По телевидению</Link>, value: 3 },
+  { key: 4, text: <Link to="/tw-series">Лучшие</Link>, value: 4 },
+]
+const optionsPeople = [
+  { key: 1, text: <Link to="/people">Популярные</Link>, value: 1 },
+]
+const optionsMore = [
+  { key: 1, text: <Link to="/more">Обсуждения</Link>, value: 1 },
+  { key: 2, text: <Link to="/more">Доска почета</Link>, value: 2 },
+  { key: 3, text: <Link to="/more">Поддержка</Link>, value: 3 },
+  { key: 4, text: <Link to="/more">API</Link>, value: 4 },
+]
 
 export default function Header() {
   return(
@@ -17,24 +40,24 @@ export default function Header() {
         <ul className="dropdown_menu">
               <li>Logo</li>
               <li>
-                <Link to="/movies">Фильмы</Link>
-                <div className="dropdown_list-animation">
-                  <ul className="dropdown_list">
-                    <li><Link to="/movies">Популярные</Link></li>
-                    <li><Link to="/movies">Смотрят сейчас</Link></li>
-                    <li><Link to="/movies">Ожидаемые</Link></li>
-                    <li><Link to="/movies">Лучшие</Link></li>
-                  </ul>
-                </div>
+                  <Menu compact>
+                    <Dropdown text = 'Фильмы' options={optionsFilms} simple item />
+                  </Menu>    
               </li>
               <li>
-                <Link to="/tw-series">Сериалы</Link>
+                <Menu compact>
+                    <Dropdown text = 'Сериалы' options={optionsSeries} simple item />
+                  </Menu>  
               </li>
               <li>
-                <Link to="/people">Люди</Link>
+                <Menu compact>
+                    <Dropdown text = 'Люди' options={optionsPeople} simple item />
+                  </Menu>  
               </li>
               <li>
-                <Link to="/more">Еще</Link>
+                <Menu compact>
+                    <Dropdown text = 'Еще' options={optionsMore} simple item />
+                </Menu>  
               </li>
         </ul>
       </li>
