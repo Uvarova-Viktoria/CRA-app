@@ -1,5 +1,4 @@
 import React from "react";
-import './filmSlider.css';
 import {
   BrowserRouter as Router,
   Switch,
