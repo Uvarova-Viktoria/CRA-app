@@ -8,7 +8,14 @@ import {
   useLocation,
   useParams
 } from "react-router-dom";
-import {Dropdown, Menu} from 'semantic-ui-react';
+import {Dropdown, ListItem, Menu} from 'semantic-ui-react';
+import logo from "../../logo.svg";
+import styled from '@emotion/styled';
+import { css } from '@emotion/css';
+
+const primaryColor = '#0d253f';
+const secondColor = '#01b4e4';
+const thirdColor = '#90cea1';
 
 const optionsFilms = [
   { key: 1, text: <Link to="/movies">Популярные</Link>, value: 1 },
@@ -31,61 +38,72 @@ const optionsMore = [
   { key: 3, text: <Link to="/more">Поддержка</Link>, value: 3 },
   { key: 4, text: <Link to="/more">API</Link>, value: 4 },
 ]
+const dropdownItems = [
+  {
+    'title' : 'Фильмы',
+    'subtitle' :  'optionsFilms'
+  },
+  {
+    'title' : 'Сериалы',
+    'subtitle' : 'optionsSeries'
+  },
+  {
+    'title' : 'Люди',
+    'subtitle' : 'optionsPeople'
+  },
+  {
+    'title' : 'Еще',
+    'subtitle' : 'optionsMore'
+  }
+];
+const timeMenu = ['О нас','Главная','Когда заработает сайт?' ];
+const otherMenu = ['Ru/En','Войти','Зарегистрироваться' ];
+
+function NumberList(props) {
+  const numbers = props.numbers;
+  const listItems = numbers.map((number) =>
+    <li>
+    {number}
+    </li>
+  );
+  return (
+    <ul>{listItems}</ul>
+  );
+}
+function MenuCompact(props) {
+  const data = props.itemMenu;
+  const itemMenu = data.map(function(item, index){
+    return (
+      <Menu compact>
+        <Dropdown text = {item.title} options={item.subtitle} simple item />
+      </Menu>
+    )
+  })
+  return (
+    <div>
+      {itemMenu}
+    </div>
+  )
+}
+const dropdownMenu = [
+  <img src={logo} alt="logo tmdb" className={css`
+              width:154px;
+            `}/>,
+  <MenuCompact itemMenu={dropdownItems} />
+];
 
 export default function Header() {
   return(
     <header className="app-header">
-    <ul className='nav'>
-      <li>
-        <ul className="dropdown_menu">
-              <li>Logo</li>
-              <li>
-                  <Menu compact>
-                    <Dropdown text = 'Фильмы' options={optionsFilms} simple item />
-                  </Menu>    
-              </li>
-              <li>
-                <Menu compact>
-                    <Dropdown text = 'Сериалы' options={optionsSeries} simple item />
-                  </Menu>  
-              </li>
-              <li>
-                <Menu compact>
-                    <Dropdown text = 'Люди' options={optionsPeople} simple item />
-                  </Menu>  
-              </li>
-              <li>
-                <Menu compact>
-                    <Dropdown text = 'Еще' options={optionsMore} simple item />
-                </Menu>  
-              </li>
-        </ul>
-      </li>
-      <li className='time_menu'>
-        <ul>
-          <li>
-            <Link to="/about">О нас</Link>
-          </li>
-          <li>
-            <Link to="/" className="main_link">Главная</Link>
-          </li>
-          <li>
-            <Link to="/timePage">Когда заработает сайт?</Link>
-          </li>
-        </ul>
-      </li>
-      <li className='other_menu'>
-        <ul>
-          <li>Ru/En</li>
-          <li>
-            <Link to="/login">Войти</Link>
-          </li>
-          <li>
-             <Link to="/signup">Зарегистрироваться</Link>
-          </li>
-          
-      </ul>
-      </li>
+    <ul className={css`
+      list-style: none;
+      display: flex;
+      padding-top: 20px;
+    `}>
+     <NumberList numbers={dropdownMenu} />
+     <NumberList numbers={timeMenu} />
+     <NumberList numbers={otherMenu} />
+      
     </ul>
     </header>
     
