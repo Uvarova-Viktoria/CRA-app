@@ -41,29 +41,32 @@ const optionsMore = [
 const dropdownItems = [
   {
     key: 1,
-    text : 'Фильмы',
-    subtitle:  'optionsFilms',
+    text : <MenuCompact text='Фильмы' subtitle={optionsFilms}/>,
     value: 1
   },
   {
     key: 2,
-    text : 'Сериалы',
-    subtitle:  'optionsSeries',
+    text : <MenuCompact text='Сериалы' subtitle={optionsSeries}/>,
     value: 2
   },
   {
     key: 3,
-    text : 'Люди',
-    subtitle:  'optionsPeople',
+    text : <MenuCompact text='Люди' subtitle={optionsPeople}/>,
     value: 3
   },
   {
     key: 4,
-    text : 'Еще',
-    subtitle:  'optionsMore',
+    text : <MenuCompact text='Еще' subtitle={optionsMore}/>,
     value: 4
   }
 ];
+function MenuCompact(props) {
+  return (
+    <Menu compact>
+      <Dropdown text = {props.text} options={props.subtitle} simple item />
+    </Menu>
+  );
+}
 const timeMenu = [
   { key: 1, text: <Link to="/about">О нас</Link>, value: 1 },
   { key: 2, text: <Link to="/" className="main_link">Главная</Link>, value: 2 },
@@ -75,7 +78,6 @@ const otherMenu = [
   { key: 3, text:  <Link to="/signup">Зарегистрироваться</Link>, value: 3 }
 ];
 
-
 function NumberList(props) {
   const numbers = props.numbers;
   const listItems = numbers.map((number) =>
@@ -83,7 +85,7 @@ function NumberList(props) {
       margin-right: 10px;
     `}>
     {number.text}
-    </li>
+    </li>   
   );
   return (
     <ul className={css`
@@ -93,27 +95,6 @@ function NumberList(props) {
     `}>{listItems}</ul>
   );
 }
-function MenuCompact(props) {
-  const data = props.itemMenu;
-  const itemMenu = data.map(function(item, index){
-    return (
-      <Menu compact>
-        <Dropdown text = {item.text} options={optionsFilms} simple item />
-      </Menu>
-    )
-  })
-  return (
-    <div>
-      {itemMenu}
-    </div>
-  )
-}
-const dropdownMenu = [
-  <img src={logo} alt="logo tmdb" className={css`
-              width:154px;
-            `}/>,
-  <MenuCompact itemMenu={dropdownItems} />
-];
 
 export default function Header() {
   return(
@@ -130,7 +111,7 @@ export default function Header() {
      <img src={logo} alt="logo tmdb" className={css`
               width:154px;
             `}/>
-      <NumberList numbers={dropdownMenu}/>
+      <NumberList numbers={dropdownItems}/>
       <NumberList numbers={timeMenu} />
       <NumberList numbers={otherMenu} />
     </ul>
