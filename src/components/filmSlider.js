@@ -27,5 +27,6 @@ function FilmsSlider() {
   return (<div className={css`
     display: grid;
     grid-template: 1fr / 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
   `}>{listItems}</div>);
 }
