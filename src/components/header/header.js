@@ -40,34 +40,54 @@ const optionsMore = [
 ]
 const dropdownItems = [
   {
-    'title' : 'Фильмы',
-    'subtitle' :  'optionsFilms'
+    key: 1,
+    text : 'Фильмы',
+    subtitle:  'optionsFilms',
+    value: 1
   },
   {
-    'title' : 'Сериалы',
-    'subtitle' : 'optionsSeries'
+    key: 2,
+    text : 'Сериалы',
+    subtitle:  'optionsSeries'
   },
   {
-    'title' : 'Люди',
-    'subtitle' : 'optionsPeople'
+    key: 3,
+    text : 'Люди',
+    subtitle:  'optionsPeople'
   },
   {
-    'title' : 'Еще',
-    'subtitle' : 'optionsMore'
+    key: 4,
+    text : 'Еще',
+    subtitle:  'optionsMore'
   }
 ];
-const timeMenu = ['О нас','Главная','Когда заработает сайт?' ];
-const otherMenu = ['Ru/En','Войти','Зарегистрироваться' ];
+const timeMenu = [
+  { key: 1, text: <Link to="/about">О нас</Link>, value: 1 },
+  { key: 2, text: <Link to="/" className="main_link">Главная</Link>, value: 2 },
+  { key: 3, text:  <Link to="/timePage" className="displayNone">Когда заработает сайт?</Link>, value: 3 }
+];
+const otherMenu = [
+  { key: 1, text: 'Ru/En', value: 1 },
+  { key: 2, text:  <Link to="/login">Войти</Link>, value: 2 },
+  { key: 3, text:  <Link to="/signup">Зарегистрироваться</Link>, value: 3 }
+];
+
 
 function NumberList(props) {
   const numbers = props.numbers;
   const listItems = numbers.map((number) =>
-    <li>
-    {number}
+    <li className={css`
+      margin-right: 10px;
+    `}>
+    {number.text}
     </li>
   );
   return (
-    <ul>{listItems}</ul>
+    <ul className={css`
+      list-style: none;
+      display: flex;
+      align-items: center;
+    `}>{listItems}</ul>
   );
 }
 function MenuCompact(props) {
@@ -75,7 +95,7 @@ function MenuCompact(props) {
   const itemMenu = data.map(function(item, index){
     return (
       <Menu compact>
-        <Dropdown text = {item.title} options={item.subtitle} simple item />
+        <Dropdown text = {item.text} options={optionsFilms} simple item />
       </Menu>
     )
   })
@@ -98,12 +118,17 @@ export default function Header() {
     <ul className={css`
       list-style: none;
       display: flex;
-      padding-top: 20px;
+      padding: 20px 0;
+      margin: 0;
+      background-color: #0d253f;
+      color: #fff;
     `}>
-     <NumberList numbers={dropdownMenu} />
-     <NumberList numbers={timeMenu} />
-     <NumberList numbers={otherMenu} />
-      
+     <img src={logo} alt="logo tmdb" className={css`
+              width:154px;
+            `}/>
+      <NumberList numbers={dropdownMenu}/>
+      <NumberList numbers={timeMenu} />
+      <NumberList numbers={otherMenu} />
     </ul>
     </header>
     
