@@ -48,17 +48,20 @@ const dropdownItems = [
   {
     key: 2,
     text : 'Сериалы',
-    subtitle:  'optionsSeries'
+    subtitle:  'optionsSeries',
+    value: 2
   },
   {
     key: 3,
     text : 'Люди',
-    subtitle:  'optionsPeople'
+    subtitle:  'optionsPeople',
+    value: 3
   },
   {
     key: 4,
     text : 'Еще',
-    subtitle:  'optionsMore'
+    subtitle:  'optionsMore',
+    value: 4
   }
 ];
 const timeMenu = [
@@ -122,6 +125,7 @@ export default function Header() {
       margin: 0;
       background-color: #0d253f;
       color: #fff;
+      justify-content: center;
     `}>
      <img src={logo} alt="logo tmdb" className={css`
               width:154px;

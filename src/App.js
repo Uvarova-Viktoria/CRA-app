@@ -1,4 +1,3 @@
-
 import {
   BrowserRouter as Router,
   Switch,
@@ -9,7 +8,8 @@ import {
   useParams,
   Redirect
 } from "react-router-dom";
-
+import styled from '@emotion/styled';
+import { css } from '@emotion/css';
 import React from "react";
 import 'semantic-ui-css/semantic.min.css';
 import About from "./components/about";
@@ -32,7 +32,7 @@ function ModalSwitch() {
   return (
     <div>
       <Header/>
-      <Switch >
+      <Switch>
         <Route exact path="/" children={<Home />}/>
         <Route path="/timePage" children={<TimePage />} />
         <Route path="/about" children={<About />} />

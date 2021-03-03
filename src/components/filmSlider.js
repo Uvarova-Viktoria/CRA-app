@@ -1,4 +1,5 @@
 import React from "react";
+import { css } from '@emotion/css';
 import {
   BrowserRouter as Router,
   Switch,
@@ -8,21 +9,23 @@ import {
   useLocation,
   useParams
 } from "react-router-dom";
-import pic from "./img/rectangle.png";
+
 import FilmsSliderCard from "./filmSliderCard";
 
 export default function ModalExample() {
   return (
     <Router>
-      <h1>Popular Films:</h1>
       <FilmsSlider/>
     </Router>
   );
 }
 function FilmsSlider() {
-  const numbers = [1, 2, 3, 4, 5];
+  const numbers = [1, 2, 3, 4, 5, 6, 7, 8 , 9, 10];
   const listItems = numbers.map((number) =>
     <FilmsSliderCard/>
   );
-  return (<div className="films-slider">{listItems}</div>);
+  return (<div className={css`
+    display: grid;
+    grid-template: 1fr / 1fr 1fr 1fr 1fr;
+  `}>{listItems}</div>);
 }
