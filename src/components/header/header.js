@@ -19,15 +19,15 @@ const thirdColor = '#90cea1';
 
 const optionsFilms = [
   { key: 1, text: <Link to="/movies">Популярные</Link>, value: 1 },
-  { key: 2, text: <Link to="/movies">Смотрят сейчас</Link>, value: 2 },
-  { key: 3, text: <Link to="/movies">Ожидаемые</Link>, value: 3 },
-  { key: 4, text: <Link to="/movies">Лучшие</Link>, value: 4 },
+  { key: 2, text: <Link to="/movies/now-playing">Смотрят сейчас</Link>, value: 2 },
+  { key: 3, text: <Link to="/movies/upcoming">Ожидаемые</Link>, value: 3 },
+  { key: 4, text: <Link to="/movies/top-rated">Лучшие</Link>, value: 4 },
 ]
 const optionsSeries = [
   { key: 1, text: <Link to="/tw-series">Популярные</Link>, value: 1 },
-  { key: 2, text: <Link to="/tw-series">В эфире сейчас</Link>, value: 2 },
-  { key: 3, text: <Link to="/tw-series">По телевидению</Link>, value: 3 },
-  { key: 4, text: <Link to="/tw-series">Лучшие</Link>, value: 4 },
+  { key: 2, text: <Link to="/tw-series/airing-today">В эфире сейчас</Link>, value: 2 },
+  { key: 3, text: <Link to="/tw-series/on-the-air">По телевидению</Link>, value: 3 },
+  { key: 4, text: <Link to="/tw-series/top-rated">Лучшие</Link>, value: 4 },
 ]
 const optionsPeople = [
   { key: 1, text: <Link to="/people">Популярные</Link>, value: 1 },
@@ -62,8 +62,8 @@ const dropdownItems = [
 ];
 function MenuCompact(props) {
   return (
-    <Menu compact>
-      <Dropdown text = {props.text} options={props.subtitle} simple item />
+    <Menu compact className={css`background: transparent !important;`}> 
+      <Dropdown text = {props.text} options={props.subtitle} simple item  className={css`color: #fff !important;`} />
     </Menu>
   );
 }
@@ -107,10 +107,11 @@ export default function Header() {
       background-color: #0d253f;
       color: #fff;
       justify-content: center;
+      align-items: center;
     `}>
-     <img src={logo} alt="logo tmdb" className={css`
+     <Link to="/"><img src={logo} alt="logo tmdb" className={css`
               width:154px;
-            `}/>
+            `}/></Link>
       <NumberList numbers={dropdownItems}/>
       <NumberList numbers={timeMenu} />
       <NumberList numbers={otherMenu} />

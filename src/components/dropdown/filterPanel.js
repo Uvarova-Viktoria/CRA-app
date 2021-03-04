@@ -14,7 +14,22 @@ const optionsSort = [
 ]
 const viewability = ['Искать все возможности просмотра?','Поточное','Бесплатно','Реклама','Прокат','Продажи' ];
 const releaseDates = ['Искать все релизы?','Искать по всем странам?','Премьерный','Театральный (ограниченно)','Цифровой','Физический', 'ТВ' ];
-const genres = ['боевик', 'комедия', 'вестрн','военный','драма','мультфильм','семейный']
+const genres = ['боевик', 'комедия', 'вестрн','военный','драма','мультфильм','семейный'];
+
+const Button = styled.button`
+  border: none;
+  width: 100%;
+  padding: 10px;
+  font-size: 1.5rem;
+  outline: none;
+  transition: 0.3s all ;
+  &:hover{
+    background-color: #01b4e4;
+    color: white;
+    cursor: pointer;
+  }
+`
+
 function FilterBox(props) {
   const items = props.names;
   const listItems = items.map((item)=>
@@ -24,82 +39,57 @@ function FilterBox(props) {
     <div>{listItems}</div>
   );
 }
-
-class FilterPanel extends React.Component {
-  state = {}
-  handleChange = (e, { value }) => this.setState({ value })
-  render (){
-    return(
+function FilterItem(props) {
+  const isDrop = props.isDrop;
+  if(isDrop){
+    return (
       <div className={css`
-        background-color: white;
-        margin-right: 20px;
-        padding: 20px;
+      box-shadow: 0 1px 15px 0 rgb(34 36 38 / 15%);
+      padding: 10px;
+      margin-bottom: 20px;
       `}>
-        <div className="sort_article">
-              <div className="filter_panel">
-                <div className="filter_panel_name">Сортировать по:</div>
-                <div className="filter">
-                <Menu compact className="icon-sort">
-                      <Dropdown text = 'Популярности (возрастание)'  options={optionsSort} simple item />
-                </Menu> 
-                  
-                </div>
-              </div>
-              <div className="filter_panel">
-                <div className="filter_panel_name">Фильтры:</div>
-                <div className="filter">
-                  <Form>
-                    <Form.Field>
-                      Показать мне:
-                    </Form.Field>
-                    <Form.Field>
-                      <Checkbox
-                        radio
-                        label='Все'
-                        name='checkboxRadioGroup'
-                        value='all'
-                        checked={this.state.value === 'all'}
-                        onChange={this.handleChange}
-                      />
-                    </Form.Field>
-                    <Form.Field>
-                      <Checkbox
-                        radio
-                        label='Фильмы, которые я не видел'
-                        name='checkboxRadioGroup'
-                        value='dontSee'
-                        checked={this.state.value === 'dontSee'}
-                        onChange={this.handleChange}
-                      />
-                    </Form.Field>
-                    <Form.Field>
-                      <Checkbox
-                        radio
-                        label='Просмотренные фильмы'
-                        name='checkboxRadioGroup'
-                        value='see'
-                        checked={this.state.value === 'see'}
-                        onChange={this.handleChange}
-                      />
-                    </Form.Field>
-                  </Form>
-                  <div className='filter-box'>
-                    <h3>Возможность просмотра</h3>
-                   <FilterBox names={viewability}/>
-                  </div>
-                  <div className='filter-box'>
-                    <h3>Даты выхода</h3>
-                    <FilterBox names={releaseDates}/>
-                  </div>
-                  <div className ='filter-box'>
-                    <h3>Жанры:</h3>
-                    <FilterBox names = {genres}/>
-                  </div>
-                </div>
-              </div>
-            </div>
-      </div>
+       <h5 className={css`
+      font-size: 20px;
+      `}>{props.title}</h5>
+       <div>
+        <div className="filter_panel_name">Сортировать результаты по:</div>
+        <div className="filter">
+          <Menu compact className="icon-sort">
+            <Dropdown text = 'Популярности (возрастание)'  options={optionsSort} simple item />
+          </Menu> 
+        </div>
+      </div>   
+    </div>
     );
   }
+  return (
+    <div className={css`
+      box-shadow: 0 1px 15px 0 rgb(34 36 38 / 15%);
+      padding: 10px;
+      margin-bottom: 20px;
+      `}>
+       <h5 className={css`
+      font-size: 20px;
+      `}>{props.title}</h5>
+       <div>     
+        <FilterBox names={viewability}/>          
+       </div>
+    </div>
+   
+  );
 }
-export default FilterPanel;
+
+export default function FilterPanel(){
+  return(
+    <div className={css`
+      background-color: white;
+      margin-right: 20px;
+      padding: 20px;
+    `}>
+      <FilterItem title = 'Сортировать' isDrop={true}/>
+      <FilterItem title = 'Фильтры' subtitle='viewability'/>
+      <FilterItem title = 'Где посмотреть'/> 
+      <Button>Поиск</Button>    
+    </div>
+  );
+}

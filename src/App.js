@@ -20,6 +20,7 @@ import Signup from "./components/signup";
 import Header from "./components/header/header";
 import Movie from "./components/dropdown/movie";
 import Series from "./components/dropdown/series";
+import People from "./components/dropdown/people";
 
 export default function MainPage() {
   return (
@@ -41,6 +42,7 @@ function ModalSwitch() {
         <Route path="/signup" children={<Signup />} />
         <Route path="/movies" children={<Movie />} />
         <Route path="/tw-series" children={<Series />} />
+        <Route path="/people" children={<People />} />
         <Redirect to="/timePage" from="/" />
       </Switch>
     </div>
