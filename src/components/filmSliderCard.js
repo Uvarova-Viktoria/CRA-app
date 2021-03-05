@@ -12,13 +12,15 @@ import pic from "./img/1.jpg";
 import { css } from '@emotion/css';
 import styled from '@emotion/styled';
 import { Rating } from 'semantic-ui-react';
+
 const H5 = styled.h5`
   margin: 0;
 `
 export default function FilmsSliderCard(){
   return (
       <div className="one-card">
-        <img src={pic} className="poster"></img>
+      <a href="/onePage"><img src={pic} alt="film poster" className="poster"></img></a>
+       
         <H5>название</H5>
         <Rating maxRating={5} defaultRating={3} icon='star' size='massive' className={css` outline:none;`}/>
       </div>  
