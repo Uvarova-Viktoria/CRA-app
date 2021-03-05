@@ -83,6 +83,9 @@ function NumberList(props) {
   const listItems = numbers.map((number) =>
     <li className={css`
       margin-right: 10px;
+      &>a{
+        color:#fff;
+      }
     `}>
     {number.text}
     </li>   

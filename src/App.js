@@ -21,7 +21,7 @@ import Header from "./components/header/header";
 import Movie from "./components/dropdown/movie";
 import Series from "./components/dropdown/series";
 import People from "./components/dropdown/people";
-
+import Footer from "./components/footer/footer";
 export default function MainPage() {
   return (
     <Router>
@@ -45,6 +45,7 @@ function ModalSwitch() {
         <Route path="/people" children={<People />} />
         <Redirect to="/timePage" from="/" />
       </Switch>
+      <Footer/>
     </div>
   );
 }
