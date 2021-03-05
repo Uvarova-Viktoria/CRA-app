@@ -105,6 +105,7 @@ export default function Header() {
     <ul className={css`
       list-style: none;
       display: flex;
+      justify-content: space-around !important;
       padding: 20px 0;
       margin: 0;
       background-color: #0d253f;
@@ -112,11 +113,15 @@ export default function Header() {
       justify-content: center;
       align-items: center;
     `}>
-     <Link to="/"><img src={logo} alt="logo tmdb" className={css`
-              width:154px;
+    <div className={css`display:flex; align-items: center;`}>
+      <Link to="/"><img src={logo} alt="logo tmdb" className={css`
+              width: 200px;
+              display: block;
             `}/></Link>
       <NumberList numbers={dropdownItems}/>
-      <NumberList numbers={timeMenu} />
+    </div>
+
+       {/*<NumberList numbers={timeMenu} />*/ } 
       <NumberList numbers={otherMenu} />
     </ul>
     </header>
