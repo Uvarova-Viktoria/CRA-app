@@ -2,15 +2,6 @@ import React from "react";
 import styled from '@emotion/styled';
 import { css } from '@emotion/css';
 
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useHistory,
-  useLocation,
-  useParams
-} from "react-router-dom";
 
 import FilmSlider from "./filmSlider";
 import Search from "./search";

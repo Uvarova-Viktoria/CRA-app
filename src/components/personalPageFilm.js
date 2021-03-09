@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -21,6 +21,7 @@ const H2 = styled.h2`
     font-weight: 400;
   }
 `
+
 export default function PersonalPageFilm(){
   return(
     <div >
@@ -37,7 +38,6 @@ export default function PersonalPageFilm(){
           padding: 50px 0; 
           justify-content: space-between;
         `}>
-          
           <div className='poster'>
             <img src={pic} alt="film poster" className={css`width:300px;`}></img>
           </div>

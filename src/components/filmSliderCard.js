@@ -1,28 +1,21 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useHistory,
-  useLocation,
-  useParams
-} from "react-router-dom";
-import pic from "./img/1.jpg";
+
 import { css } from '@emotion/css';
 import styled from '@emotion/styled';
 import { Rating } from 'semantic-ui-react';
 
-const H5 = styled.h5`
-  margin: 0;
-`
-export default function FilmsSliderCard(){
-  return (
-      <div className="one-card">
-      <a href="/onePage"><img src={pic} alt="film poster" className="poster"></img></a>
-       
-        <H5>название</H5>
-        <Rating maxRating={5} defaultRating={3} icon='star' size='massive' className={css` outline:none;`}/>
-      </div>  
-  );
-}
+const IMG_API = "https://image.tmdb.org/t/p/w1280";
+const FilmsSliderCard = ({ title, poster_path, overview, vote_average}) =>(
+  <div className="one-card">
+    <a href="/onePage"><img src={IMG_API + poster_path} alt={title}  className = {css`
+      width: 250px; 
+    `}/></a>
+    <div>
+      <h3>{title}</h3>
+      <span>{vote_average}</span>
+    </div>
+
+  </div>
+);
+
+export default FilmsSliderCard;
