@@ -15,7 +15,7 @@ import styled from '@emotion/styled';
 import SmallDropdown from './smallDropdown';
 import queryString from 'query-string';
 import { useMemo } from "react";
-const FEATURE_API ="https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=c35b372cfa1b3f13b4f773b276d1de6e";
+//const FEATURE_API ="https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=c35b372cfa1b3f13b4f773b276d1de6e";
 const IMG_API = "https://image.tmdb.org/t/p/w1280";
 const H2 = styled.h2`
   font-size: 36px;
@@ -28,19 +28,19 @@ const H2 = styled.h2`
 export default function PersonalPageFilm(){
   const router = useRouter();
   //console.log(router.query.postId);
-  //console.log('2= '+ router.pathname.slice(-6));
   const filmID = +router.pathname.slice(-6);
-  const [movies,setMovie]  = useState([]);
-
+  const [movie,setMovie]  = useState([]);
+  const FEATURE_API = `https://api.themoviedb.org/3/movie/${filmID}?api_key=c35b372cfa1b3f13b4f773b276d1de6e`;
+  
   useEffect(() => {
     fetch(FEATURE_API)
       .then((res) => res.json())
       .then((data) => {
-        setMovie(data.results);
-        //console.log(data.results);
+        setMovie(data);
+        //console.log(data);
       })
   })
-  const listItems = movies.map((movie) =>
+  const listItems = (
   <div >
     <div className={css`
       background-image: linear-gradient(to right, rgba(78.43%, 59.61%, 41.18%, 1.00) 150px, rgba(78.43%, 59.61%, 41.18%, 0.84) 100%);
@@ -75,18 +75,20 @@ export default function PersonalPageFilm(){
             `}>
                 <span className='release'>{movie.release_date}</span>
                 <span className='genre'>
-      
-                  <a href='/genre/boevik'>{movie.genre_ids.join(' ')}</a>
-                  <a href='/genre/komedia'>комедия</a>
-                  <a href='/genre/family'>семейный</a>
+                {    
+                  movie.genres.map((item)=>
+                    <a href='/genre/boevik'>{item.name}</a>
+                  )
+                }            
                 </span>
-                <span className='runtime'>1:47</span>
+                <span className='runtime'>{movie.runtime} min</span>
             </div>
             <div className = {css`
               display:inline-block;
               padding: 10px;
               border: 2px solid red;
               border-radius: 50%;
+              margin: 10px 0;
               &:hover {
                 background-color: red;
                 cursor: pointer;
@@ -100,24 +102,25 @@ export default function PersonalPageFilm(){
                 font-weight: 400;
                 font-style: italic;
                 opacity: 0.7;
-              `}> </h3>
+              `}>{movie.tagline}</h3>
               <h3>Обзор</h3>
               <p>{movie.overview}</p>
+              <div className='actor'>
+
+              </div>
             </div>
           </div>
          </div> : ''
        }
-       
-      
     </div>
   </div>
-    
+  
   );
   return(
     <div >
       <SmallDropdown />
       <div>
-       {listItems}
+        {listItems}
       </div>
     </div>
   );
