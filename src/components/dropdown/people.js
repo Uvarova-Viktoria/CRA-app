@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -8,9 +8,10 @@ import {
   useLocation,
   useParams
 } from "react-router-dom";
-import ItemPeople from "./itemPeople";
+import ItemPeople from "./peopleSliderCard";
 import styled from '@emotion/styled';
 import { css } from '@emotion/css';
+const FEATURE_API ="https://api.themoviedb.org/3/person/popular?api_key=c35b372cfa1b3f13b4f773b276d1de6e";
 
 const H2 = styled.h2`
   font-size: 2em;
@@ -19,9 +20,17 @@ const H2 = styled.h2`
   font-family: 'Marck Script', cursive;
 `
 export default function People(){
-  const numbers = [1, 2, 3, 4, 5, 6, 7, 8 , 9, 10];
-  const listItems = numbers.map((number) =>
-    <ItemPeople/>
+  const [people, setPeople]  = useState([]);
+
+  useEffect(() => {
+    fetch(FEATURE_API)
+      .then((res) => res.json())
+      .then((data) => {
+        setPeople(data.results);
+      })
+  })
+  const listItems = people.map((item) =>
+    <ItemPeople key={item.id} {...item}/>
   );
   return(
     <div className={css`
@@ -35,8 +44,9 @@ export default function People(){
       <div className={css`
         display: grid;
         grid-template: 1fr / 1fr 1fr 1fr 1fr 1fr;
-        grid-gap: 10px;
-      `}>{listItems}</div>);
+        grid-gap: 20px;
+        margin-top:50px;
+      `}>{listItems}</div>
       </div>
 
   );

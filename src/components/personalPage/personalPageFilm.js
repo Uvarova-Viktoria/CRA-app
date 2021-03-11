@@ -9,10 +9,10 @@ import {
   useParams,
   useRouteMatch
 } from "react-router-dom";
-import pic from "./img/1.jpg";
 import { css } from '@emotion/css';
 import styled from '@emotion/styled';
-import SmallDropdown from './smallDropdown';
+import SmallDropdown from '../smallDropdown';
+import Starring from './starring';
 import queryString from 'query-string';
 import { useMemo } from "react";
 //const FEATURE_API ="https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=c35b372cfa1b3f13b4f773b276d1de6e";
@@ -41,9 +41,14 @@ export default function PersonalPageFilm(){
       })
   })
   const listItems = (
-  <div >
+  <div className={css`
+   
+    background: url('${IMG_API}${movie.backdrop_path}');
+    background-size: cover;
+    background-repeat: no-repeat;
+  `}>
     <div className={css`
-      background-image: linear-gradient(to right, rgba(78.43%, 59.61%, 41.18%, 1.00) 150px, rgba(78.43%, 59.61%, 41.18%, 0.84) 100%);
+          background-image: linear-gradient(to right, rgba(16.08%, 7.45%, 5.49%, 1.00) 150px, rgba(16.08%, 7.45%, 5.49%, 0.84) 100%);
     `}>
        {
          movie.id === filmID ? <div className={css`
@@ -122,6 +127,7 @@ export default function PersonalPageFilm(){
       <div>
         {listItems}
       </div>
+      <Starring/>
     </div>
   );
 }

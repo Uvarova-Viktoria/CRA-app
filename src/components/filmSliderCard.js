@@ -16,7 +16,7 @@ const IMG_API = "https://image.tmdb.org/t/p/w1280";
 
 const FilmsSliderCard = ({ title, poster_path, overview, vote_average, id}) =>(
   <div className="one-card">
-    <Link to={'/onePage/'+id} ><img src={IMG_API + poster_path} alt={title}  className = {css`
+    <Link to={'/moviePage/'+id} ><img src={IMG_API + poster_path} alt={title}  className = {css`
       width: 250px; 
     `}/></Link>
 
