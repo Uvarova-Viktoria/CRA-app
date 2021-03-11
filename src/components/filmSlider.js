@@ -27,7 +27,6 @@ function FilmsSlider() {
     fetch(FEATURE_API)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setMovie(data.results);
       })
   })

@@ -8,10 +8,9 @@ import {
   useParams,
   Redirect
 } from "react-router-dom";
-import styled from '@emotion/styled';
-import { css } from '@emotion/css';
 import React from "react";
 import 'semantic-ui-css/semantic.min.css';
+
 import About from "./components/about";
 import TimePage from "./components/timePage";
 import Home from "./components/home";
@@ -22,7 +21,8 @@ import Movie from "./components/dropdown/movie";
 import Series from "./components/dropdown/series";
 import People from "./components/dropdown/people";
 import Footer from "./components/footer/footer";
-import PersonalPageFilm from "./components/personalPageFilm";
+import PersonalPageFilm from "./components/personalPageFilm";  
+
 export default function MainPage() {
   return (
     <Router>
@@ -44,7 +44,7 @@ function ModalSwitch() {
         <Route path="/movies" children={<Movie />} />
         <Route path="/tw-series" children={<Series />} />
         <Route path="/people" children={<People />} />
-        <Route path="/onePage" children={<PersonalPageFilm />} />
+        <Route path="/onePage/:id" render={()=>(<PersonalPageFilm />)} />
         <Redirect to="/timePage" from="/" />
       </Switch>
       <Footer/>
