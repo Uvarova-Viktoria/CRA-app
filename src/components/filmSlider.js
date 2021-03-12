@@ -31,7 +31,7 @@ function FilmsSlider() {
       })
   })
   const listItems = movies.map((movie) =>
-    <FilmsSliderCard key={movie.id} {...movie}/>
+    <FilmsSliderCard key={movie.id} {...movie} picSize='250px'/>
   );
   return (<div className={css`
     display: grid;
