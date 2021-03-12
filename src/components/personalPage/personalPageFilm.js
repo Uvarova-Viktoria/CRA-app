@@ -28,7 +28,7 @@ const H2 = styled.h2`
 export default function PersonalPageFilm(){
   const router = useRouter();
   //console.log(router.query.postId);
-  const filmID = +router.pathname.slice(-6);
+  const filmID = +router.query.id;
   const [movie,setMovie]  = useState([]);
   const FEATURE_API = `https://api.themoviedb.org/3/movie/${filmID}?api_key=c35b372cfa1b3f13b4f773b276d1de6e`;
   
