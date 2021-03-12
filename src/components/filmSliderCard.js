@@ -9,10 +9,7 @@ import {
   useLocation,
   useParams
 } from "react-router-dom";
-//import PersonalPageFilm from "./components/personalPageFilm";  
-
 const IMG_API = "https://image.tmdb.org/t/p/w1280";
-
 
 const FilmsSliderCard = ({ title, poster_path, overview, vote_average, id, picSize}) =>(
   <div className="one-card">

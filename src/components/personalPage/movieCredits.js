@@ -1,18 +1,6 @@
 import React, { useEffect, useState } from "react";
 import FilmsSliderCard from "../filmSliderCard";
 import { css } from '@emotion/css';
-//const FEATURE_API =`https://api.themoviedb.org/3/person/${person_id}/movie_credits?api_key=c35b372cfa1b3f13b4f773b276d1de6e&language=ru`;
-
-
-/*
-const MovieCredits =({person_id}) =>(
-  
-  <div>
-      credits
-      {person_id}
-  </div>
-);
-export default  MovieCredits;*/
 
 export default function MovieCredits({person_id}){
   const FEATURE_API =`https://api.themoviedb.org/3/person/${person_id}/movie_credits?api_key=c35b372cfa1b3f13b4f773b276d1de6e&language=ru`;
@@ -22,7 +10,6 @@ export default function MovieCredits({person_id}){
       .then((res) => res.json())
       .then((data) => {
         setMovie(data.cast);
-        //console.log(data.cast);
       })
   })
   const listItems = movie.map((item) =>
