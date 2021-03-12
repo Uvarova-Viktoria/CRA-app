@@ -14,6 +14,7 @@ import styled from '@emotion/styled';
 import SmallDropdown from '../smallDropdown';
 import queryString from 'query-string';
 import { useMemo } from "react";
+import MovieCredits from "./movieCredits"
 const IMG_API = "https://image.tmdb.org/t/p/w1280";
 const H2 = styled.h2`
   font-size: 36px;
@@ -83,6 +84,7 @@ export default function PersonalPagePeople(){
           <p className={css`white-space: break-spaces;`}>
           {person.biography}
           </p>  
+          <MovieCredits person_id={person_id}/>
       </div>   
     </div> 
     : ''}   
