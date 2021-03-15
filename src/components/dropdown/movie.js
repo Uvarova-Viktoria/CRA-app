@@ -21,12 +21,10 @@ const H2 = styled.h2`
   font-weight: 600;
   margin: 0;
   font-family: 'Marck Script', cursive;
+  margin-bottom: 20px;
 `
 function SwitchTitle(props) {
   const title =props.title;
-  <div>
-    {console.log('title = '+ title)}
-  </div>
   switch(title){
     case '/movie/popular' : return 'Популярные фильмы';
     case '/movie/now_playing' : return 'Сейчас смотрят фильмы';
@@ -49,12 +47,12 @@ export default function Movie(){
       padding: 20px;
       background-color: #90cea1;
       `}>
-        <SwitchTitle title={typePath}/>
+        <H2><SwitchTitle title={typePath}/></H2>
       <div className={css`
         display: flex;
       `}>
         <FilterPanel/>
-        <FilmSlider typePath={typePath} />
+        <FilmSlider typePath={typePath} sizeColumn='4' display='grid' overflow='visible' />
       </div>
     </div>
   );

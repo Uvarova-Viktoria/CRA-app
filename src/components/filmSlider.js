@@ -13,10 +13,8 @@ import {
 import FilmsSliderCard from "./filmSliderCard";
 //const FEATURE_API ="https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=c35b372cfa1b3f13b4f773b276d1de6e";
 
-export default function FilmsSlider(props) {
-  const typePath = props.typePath; 
-  const picSize = props.picSize;
-  const FEATURE_API =`https://api.themoviedb.org/3${typePath}?api_key=c35b372cfa1b3f13b4f773b276d1de6e`;
+export default function FilmsSlider({typePath, sizeColumn, display, overflow}) {
+  const FEATURE_API =`https://api.themoviedb.org/3${typePath}?api_key=c35b372cfa1b3f13b4f773b276d1de6e&page=1`;
 
   const [movies,setMovie]  = useState([]);
 
@@ -31,13 +29,13 @@ export default function FilmsSlider(props) {
     <FilmsSliderCard key={movie.id} {...movie} picSize='200px'/>
   );
   return (<div className={css`
-    display: grid;
-    grid-template: 1fr / 1fr 1fr 1fr 1fr;
+    display: ${display};
+    grid-template-columns:  repeat(${+sizeColumn}, 1fr);;
     grid-gap: 10px;
+    align-items: baseline;
+    overflow-x: ${overflow};
+    padding: 0 40px;
   `}>
   {listItems}
-  <Switch>
-    <Route exact path="/now_playing"></Route>
-    </Switch>
   </div>);
 }

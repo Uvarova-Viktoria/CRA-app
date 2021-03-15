@@ -17,7 +17,7 @@ const H1 = styled.h1`
 const H2 = styled.h2`
   font-size: 2em;
   font-weight: 600;
-  margin: 0;
+  margin: 30px 0;
   font-family: 'Marck Script', cursive;
 `
 export default function Home() {
@@ -29,10 +29,18 @@ export default function Home() {
         text-align: center;
         background-color: #90cea1;
         `}> 
-        <H1>Добро пожаловать.</H1> <H2>Миллионы фильмов, сериалов и людей.</H2>
+        <H1>Добро пожаловать.<br />Миллионы фильмов, сериалов и людей.</H1>
         <Search/>
         <H2>Popular Films:</H2>
-        <FilmSlider typePath='/movie/popular'/>
+        <FilmSlider typePath='/movie/popular' sizeColumn='6' display='flex' overflow='scroll'/>
+        <div className={css`
+          background-color: #fff;
+          padding-top: 50px;
+        `}>
+        <H2>В эфире сейчас</H2>
+          <FilmSlider typePath='/tv/airing_today' sizeColumn='6' display='flex' overflow='scroll'/>
+        </div>
+        
       </div>
       
     

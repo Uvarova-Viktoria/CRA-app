@@ -88,6 +88,7 @@ export default function FilterPanel(){
       background-color: white;
       margin-right: 20px;
       padding: 20px;
+      height: 100%;
     `}>
       <FilterItem title = 'Сортировать' isDrop={true}/>
       <FilterItem title = 'Фильтры' subtitle='viewability'/>
