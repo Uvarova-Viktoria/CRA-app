@@ -13,14 +13,7 @@ import {
 import FilmsSliderCard from "./filmSliderCard";
 const FEATURE_API ="https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=c35b372cfa1b3f13b4f773b276d1de6e";
 
-export default function ModalExample() {
-  return (
-    <Router>
-      <FilmsSlider/>
-    </Router>
-  );
-}
-function FilmsSlider() {
+export default function FilmsSlider() {
   const [movies,setMovie]  = useState([]);
 
   useEffect(() => {
