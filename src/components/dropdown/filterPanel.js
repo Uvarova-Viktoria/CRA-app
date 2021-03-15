@@ -33,7 +33,7 @@ const Button = styled.button`
 function FilterBox(props) {
   const items = props.names;
   const listItems = items.map((item)=>
-    <Checkbox label= {item} className={css`width: 100%;`}/>
+    <Checkbox label= {item} className={css`width: 100%; margin-bottom: 8px;`}/>
   )
   return (
     <div>{listItems}</div>
@@ -49,12 +49,15 @@ function FilterItem(props) {
       margin-bottom: 20px;
       `}>
        <h5 className={css`
-      font-size: 20px;
+      font-size: 16px;
       `}>{props.title}</h5>
        <div>
-        <div className="filter_panel_name">Сортировать результаты по:</div>
+        <div className={css`font-weight: 300; font-size:14px;`}>Сортировать результаты по:</div>
         <div className="filter">
-          <Menu compact className="icon-sort">
+          <Menu compact className={`icon-sort ${css`
+          display: block !important;
+          color: red;
+        `}`}>
             <Dropdown text = 'Популярности (возрастание)'  options={optionsSort} simple item />
           </Menu> 
         </div>
@@ -69,7 +72,7 @@ function FilterItem(props) {
       margin-bottom: 20px;
       `}>
        <h5 className={css`
-      font-size: 20px;
+       font-size: 16px;
       `}>{props.title}</h5>
        <div>     
         <FilterBox names={viewability}/>          
@@ -88,7 +91,7 @@ export default function FilterPanel(){
     `}>
       <FilterItem title = 'Сортировать' isDrop={true}/>
       <FilterItem title = 'Фильтры' subtitle='viewability'/>
-      <FilterItem title = 'Где посмотреть'/> 
+      <FilterItem title = 'Где посмотреть' /> 
       <Button>Поиск</Button>    
     </div>
   );

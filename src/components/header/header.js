@@ -18,16 +18,16 @@ const secondColor = '#01b4e4';
 const thirdColor = '#90cea1';
 
 const optionsFilms = [
-  { key: 1, text: <Link to="/movies">Популярные</Link>, value: 1 },
-  { key: 2, text: <Link to="/movies/now-playing">Смотрят сейчас</Link>, value: 2 },
-  { key: 3, text: <Link to="/movies/upcoming">Ожидаемые</Link>, value: 3 },
-  { key: 4, text: <Link to="/movies/top-rated">Лучшие</Link>, value: 4 },
+  { key: 1, text: <Link to="/movie/popular">Популярные</Link>, value: 1 },
+  { key: 2, text: <Link to="/movie/now_playing">Смотрят сейчас</Link>, value: 2 },
+  { key: 3, text: <Link to="/movie/upcoming">Ожидаемые</Link>, value: 3 },
+  { key: 4, text: <Link to="/movie/top_rated">Лучшие</Link>, value: 4 },
 ]
 const optionsSeries = [
-  { key: 1, text: <Link to="/tw-series">Популярные</Link>, value: 1 },
-  { key: 2, text: <Link to="/tw-series/airing-today">В эфире сейчас</Link>, value: 2 },
-  { key: 3, text: <Link to="/tw-series/on-the-air">По телевидению</Link>, value: 3 },
-  { key: 4, text: <Link to="/tw-series/top-rated">Лучшие</Link>, value: 4 },
+  { key: 1, text: <Link to="/tv/popular">Популярные</Link>, value: 1 },
+  { key: 2, text: <Link to="/tv/airing_today">В эфире сейчас</Link>, value: 2 },
+  { key: 3, text: <Link to="/tv/on_the_air">По телевидению</Link>, value: 3 },
+  { key: 4, text: <Link to="/tv/top_rated">Лучшие</Link>, value: 4 },
 ]
 const optionsPeople = [
   { key: 1, text: <Link to="/people">Популярные</Link>, value: 1 },

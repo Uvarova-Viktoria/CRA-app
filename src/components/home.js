@@ -32,7 +32,7 @@ export default function Home() {
         <H1>Добро пожаловать.</H1> <H2>Миллионы фильмов, сериалов и людей.</H2>
         <Search/>
         <H2>Popular Films:</H2>
-        <FilmSlider />
+        <FilmSlider typePath='/movie/popular'/>
       </div>
       
     
