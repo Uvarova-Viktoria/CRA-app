@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -50,16 +50,21 @@ function SwitchTitle(props) {
   }
 }
 
-export default function Movie(){
-  const router = useRouter();
-  const typePath = router.pathname;  // now-playing || upcoming ....
-
-  function handleClick(e) {
-   
-    alert('load more button');
-   // <FilmSlider typePath={typePath} sizeColumn='3' display='grid' overflow='visible' />
+const typePath = "/movie/popular";
+//export default function Movie(){
+class Movie extends React.Component {
+ //const router = useRouter();
+ //const typePath = router.pathname;  
+ 
+  state = {
+    count: 0,
   }
-  
+  handleClick = () => {
+    this.setState(({count}) => ({
+      count: count+1,
+    }))
+  }
+  render() {
   return(
     <div className={css`
       width: 100%;
@@ -74,15 +79,17 @@ export default function Movie(){
       `}>
         <FilterPanel/>
         <div>
-          <FilmSlider typePath={typePath} sizeColumn='4' display='grid' overflow='visible' />
-          <Button onClick={() => this.handleClick()}>Загрузить еще</Button>
-         
+        <FilmSlider typePath={typePath} sizeColumn='4' display='grid' overflow='visible' page={1} />
+        {[...Array(this.state.count)].map(()=><div><h1>{this.state.count}</h1><FilmSlider typePath={typePath} sizeColumn='4' display='grid' overflow='visible' page={this.state.count} /></div>)}
+          <Button onClick={this.handleClick}>Загрузить еще</Button>
         </div>
         
       </div>
     </div>
   );
+  }
 }
+export default Movie;
 
 export function useRouter() {
   const params = useParams();
