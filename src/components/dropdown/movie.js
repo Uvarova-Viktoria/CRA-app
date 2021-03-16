@@ -23,6 +23,19 @@ const H2 = styled.h2`
   font-family: 'Marck Script', cursive;
   margin-bottom: 20px;
 `
+const Button = styled.button`
+  border: none;
+  width: 100%;
+  padding: 10px;
+  font-size: 1.5rem;
+  outline: none;
+  transition: 0.3s all ;
+  &:hover{
+    background-color: #01b4e4;
+    color: white;
+    cursor: pointer;
+  }
+`
 function SwitchTitle(props) {
   const title =props.title;
   switch(title){
@@ -36,9 +49,17 @@ function SwitchTitle(props) {
     default : return 'Популярные сериалы';
   }
 }
+
 export default function Movie(){
   const router = useRouter();
   const typePath = router.pathname;  // now-playing || upcoming ....
+
+  function handleClick(e) {
+   
+    alert('load more button');
+   // <FilmSlider typePath={typePath} sizeColumn='3' display='grid' overflow='visible' />
+  }
+  
   return(
     <div className={css`
       width: 100%;
@@ -52,7 +73,12 @@ export default function Movie(){
         display: flex;
       `}>
         <FilterPanel/>
-        <FilmSlider typePath={typePath} sizeColumn='4' display='grid' overflow='visible' />
+        <div>
+          <FilmSlider typePath={typePath} sizeColumn='4' display='grid' overflow='visible' />
+          <Button onClick={() => this.handleClick()}>Загрузить еще</Button>
+         
+        </div>
+        
       </div>
     </div>
   );
