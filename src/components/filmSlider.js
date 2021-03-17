@@ -34,7 +34,6 @@ export default function FilmsSlider({typePath, sizeColumn, display, overflow, pa
     grid-gap: 10px;
     align-items: baseline;
     overflow-x: ${overflow};
-    /*padding: 0 40px;*/
   `}>
   {listItems}
   </div>);

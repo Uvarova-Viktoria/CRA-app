@@ -29,7 +29,6 @@ export default function Home() {
         max-width: 1240px;
         margin: 0 auto;
         text-align: center;
-       /* background-color: #90cea1;*/
         `}> 
         <div className={css`background-color: #90cea1; padding-bottom: 50px;`}>
           <H1>Добро пожаловать.<br />Миллионы фильмов, сериалов и людей.</H1>
@@ -41,10 +40,7 @@ export default function Home() {
           <H2>Popular Films:</H2>
           <Toggle />
           <FilmSlider typePath='/movie/popular' sizeColumn='6' display='flex' overflow='scroll'/>
-        </section>
-        
-        
-        
+        </section>          
         <section className={css`
           background-color: #fff;
           padding-top: 50px;
