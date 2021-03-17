@@ -1,7 +1,6 @@
 import React from "react";
 import styled from '@emotion/styled';
 import { css } from '@emotion/css';
-import Toggle from './toggle';
 
 import FilmSlider from "./filmSlider";
 import SearchElement from "./search/searchElement";
@@ -38,7 +37,7 @@ export default function Home() {
           padding: 20px 60px ;
         `}>
           <H2>Popular Films:</H2>
-          <Toggle />
+         
           <FilmSlider typePath='/movie/popular' sizeColumn='6' display='flex' overflow='scroll'/>
         </section>          
         <section className={css`
