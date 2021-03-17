@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { css } from '@emotion/css';
 import {
   BrowserRouter as Router,
@@ -12,15 +12,21 @@ import {
 } from "react-router-dom";
 
 export default function SearchElement(){
+  const [value, setValue] = useState();
+
   let history = useHistory();
-  function handleClick() {
-    history.push("/search")
+  function handleClick(e) {
+    //history.push("/search")
+    //onClick={(e)=> history.push(`/search/query=${e.target.value}`)}
+    e.preventDefault();
+    //console.log(value);
+    history.push(`/search/?searchText=${value}`);
   }
     return(
       <form className={css`
       margin-top: 20px;
       `}>
-        <input type="text" placeholder="Найти фильм, сериал, персону..." className={css`
+        <input type="text" placeholder="Найти фильм, сериал, персону..." value={value} onChange={(e) => setValue(e.target.value)} className={css`
           width: 35%;
           padding: 10px;
           padding-left: 20px;
