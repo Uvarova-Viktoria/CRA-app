@@ -13,8 +13,8 @@ import {
 import FilmsSliderCard from "./filmSliderCard";
 //const FEATURE_API ="https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=c35b372cfa1b3f13b4f773b276d1de6e";
 
-export default function FilmsSlider({typePath, sizeColumn, display, overflow}) {
-  const FEATURE_API =`https://api.themoviedb.org/3${typePath}?api_key=c35b372cfa1b3f13b4f773b276d1de6e&page=1`;
+export default function FilmsSlider({typePath, sizeColumn, display, overflow, page}) {
+  const FEATURE_API =`https://api.themoviedb.org/3${typePath}?api_key=c35b372cfa1b3f13b4f773b276d1de6e&page=${page}`;
 
   const [movies,setMovie]  = useState([]);
 
@@ -34,7 +34,7 @@ export default function FilmsSlider({typePath, sizeColumn, display, overflow}) {
     grid-gap: 10px;
     align-items: baseline;
     overflow-x: ${overflow};
-    padding: 0 40px;
+    /*padding: 0 40px;*/
   `}>
   {listItems}
   </div>);
