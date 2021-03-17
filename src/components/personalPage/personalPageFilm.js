@@ -111,7 +111,7 @@ export default function PersonalPageFilm(){
               <h3>Обзор</h3>
               <p>{movie.overview}</p>
               <div className='actor'>
-
+              
               </div>
             </div>
           </div>
@@ -127,7 +127,7 @@ export default function PersonalPageFilm(){
       <div>
         {listItems}
       </div>
-      <Starring/>
+      <Starring filmID={filmID}/>
     </div>
   );
 }

@@ -3,7 +3,6 @@ import {
   BrowserRouter as Router,
   Link
 } from "react-router-dom";
-import styled from '@emotion/styled';
 import { css } from '@emotion/css';
 
 const IMG_API = "https://image.tmdb.org/t/p/w1280";

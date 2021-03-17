@@ -8,7 +8,7 @@ import {
   useLocation,
   useParams
 } from "react-router-dom";
-import man from "./img/man.svg";
+import man from "../img/man.svg";
 import { css } from '@emotion/css';
 import styled from '@emotion/styled';
 const H1 = styled.h1`

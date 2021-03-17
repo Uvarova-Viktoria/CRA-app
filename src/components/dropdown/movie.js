@@ -49,22 +49,29 @@ function SwitchTitle(props) {
     default : return 'Популярные сериалы';
   }
 }
-
-const typePath = "/movie/popular";
-//export default function Movie(){
-class Movie extends React.Component {
- //const router = useRouter();
- //const typePath = router.pathname;  
- 
+/*
+ {[...Array(this.state.count)].map(()=><div><h1>{this.state.count}</h1><FilmSlider typePath={typePath} sizeColumn='4' display='grid' overflow='visible' page={this.state.count} /></div>)}
+          <Button onClick={this.handleClick}>Загрузить еще</Button>
+*/ 
+//const typePath = "/movie/popular";
+export default function Movie(){
+//class Movie extends React.Component {
+ const router = useRouter();
+ const typePath = router.pathname;  
+ let count = 1;
+ /*
   state = {
     count: 0,
-  }
-  handleClick = () => {
-    this.setState(({count}) => ({
-      count: count+1,
-    }))
-  }
-  render() {
+  }*/
+  /*
+  const handleClick = (e) => {
+    //this.setState(({count}) => ({
+      count => count+1
+//}))onClick={handleClick}
+ {[...Array(this.state.count)].map(()=><div><h1>{this.state.count}</h1><FilmSlider typePath={typePath} sizeColumn='4' display='grid' overflow='visible' page={this.state.count} /></div>)}
+         
+  }*/
+ // render() {
   return(
     <div className={css`
       width: 100%;
@@ -80,16 +87,15 @@ class Movie extends React.Component {
         <FilterPanel/>
         <div>
         <FilmSlider typePath={typePath} sizeColumn='4' display='grid' overflow='visible' page={1} />
-        {[...Array(this.state.count)].map(()=><div><h1>{this.state.count}</h1><FilmSlider typePath={typePath} sizeColumn='4' display='grid' overflow='visible' page={this.state.count} /></div>)}
-          <Button onClick={this.handleClick}>Загрузить еще</Button>
+        <Button >Загрузить еще</Button>
         </div>
         
       </div>
     </div>
   );
-  }
+ // }
 }
-export default Movie;
+//export default Movie;
 
 export function useRouter() {
   const params = useParams();
